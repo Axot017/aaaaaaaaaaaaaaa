@@ -1,0 +1,3 @@
+enum AuthScreenState {
+  LOGIN, REGISTER
+}
