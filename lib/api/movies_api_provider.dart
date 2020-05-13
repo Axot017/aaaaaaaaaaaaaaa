@@ -13,5 +13,5 @@ abstract class MoviesApiProvider {
   Future<SearchResponse> getPropositions(@Query("s") String text, {@Query("apikey") String apiKey = '4f6bad82'});
 
   @GET('http://www.omdbapi.com/')
-  Future<Movie> getMovie(@Query("i") String id, {@Query("apikey") String apiKey = '4f6bad82'});
+  Future<Movie> getMovie(@Query("t") String title, {@Query("apikey") String apiKey = '4f6bad82'});
 }

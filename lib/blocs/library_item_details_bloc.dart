@@ -17,6 +17,10 @@ class LibraryItemDetailsBloc extends BlocBase {
     _editedRecordSubject.add(_editedRecordSubject.value..recordType = type);
   }
 
+  void changeImage(String url) {
+    _editedRecordSubject.add(_editedRecordSubject.value..imageUrl = url);
+  }
+
   void changeTitle(String title) {
     _editedRecordSubject.value..title = title;
   }

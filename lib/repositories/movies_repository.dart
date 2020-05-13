@@ -9,5 +9,5 @@ class MoviesRepository {
 
   Future<SearchResponse> getPropositions(String text) => _apiProvider.getPropositions(text);
 
-  Future<Movie> getMovie(String id) => _apiProvider.getMovie(id);
+  Future<Movie> getMovie(String title) => _apiProvider.getMovie(title);
 }

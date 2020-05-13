@@ -37,10 +37,10 @@ class _MoviesApiProvider implements MoviesApiProvider {
   }
 
   @override
-  getMovie(id, {apiKey = '4f6bad82'}) async {
-    ArgumentError.checkNotNull(id, 'id');
+  getMovie(title, {apiKey = '4f6bad82'}) async {
+    ArgumentError.checkNotNull(title, 'title');
     const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{'i': id, 'apikey': apiKey};
+    final queryParameters = <String, dynamic>{'t': title, 'apikey': apiKey};
     queryParameters.removeWhere((k, v) => v == null);
     final _data = <String, dynamic>{};
     final Response<Map<String, dynamic>> _result = await _dio.request(

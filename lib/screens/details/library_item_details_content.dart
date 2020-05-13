@@ -65,7 +65,7 @@ class LibraryItemDetailsContentState extends State<LibraryItemDetailsContent> {
                         onImageClick: _selectImage,
                         imageFile: _selectedImage,
                         icon: currentRecordState?.icon ?? snapshot.data?.icon ?? Icons.edit,
-                        imageUrl: snapshot.data?.imageUrl ?? '',
+                        imageUrl: currentRecordState?.imageUrl ?? snapshot.data?.imageUrl ?? '',
                         iconHeroTag: '${widget.recordKey}icon',
                         imageHeroTag: '${widget.recordKey}image',
                         isInEditMode: _isInEditMode,
@@ -120,7 +120,6 @@ class LibraryItemDetailsContentState extends State<LibraryItemDetailsContent> {
   void dispose() {
     super.dispose();
     _currentRecordSubscription.cancel();
-    AppModule.injector.disposeBloc<LibraryItemDetailsBloc>();
   }
   
   void _selectImage() {

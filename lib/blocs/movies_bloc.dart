@@ -16,13 +16,15 @@ class MoviesBloc extends BlocBase {
   MoviesBloc(this._moviesRepository) {
     searchStream = _searchSubject
         .debounceTime(Duration(seconds: 1))
-        .switchMap((query) => _moviesRepository.getPropositions(query).asStream());
+        .switchMap((query) => query != ''
+        ? _moviesRepository.getPropositions(query).asStream()
+        : Stream.fromIterable([SearchResponse(results: [])]));
   }
 
   Function(String query) get getPropositions => _searchSubject.add;
   
-  void getMovie(String id) {
-    _moviesRepository.getMovie(id)
+  void getMovie(String title) {
+    _moviesRepository.getMovie(title)
         .then(_movieSubject.add)
         .catchError(_movieSubject.addError);
   }
